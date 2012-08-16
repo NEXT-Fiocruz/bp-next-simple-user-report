@@ -2108,7 +2108,7 @@ function bug_report_path()
 
 function bug_report_new_footer()
 {
-	$bug_report_footer = "<a href='#' id='bug' class='duvidas-ou-sugestoes'>Duvidas ou Sugestões</a><script language='JavaScript'>jQuery(document).ready(function() {jQuery('.duvidas-ou-sugestoes').colorbox({href:'" . bug_report_path().'submitnewissue.php'."', opacity: 0.3, iframe:true, width:'570px', height:'660px'});});
+	$bug_report_footer = "<a href='#' id='bug' class='duvidas-ou-sugestoes'>Dúvidas ou Sugestões</a><script language='JavaScript'>jQuery(document).ready(function() {jQuery('.duvidas-ou-sugestoes').colorbox({href:'" . bug_report_path().'submitnewissue.php'."', opacity: 0.3, iframe:true, width:'570px', height:'660px'});});
     </script>";
 	return $bug_report_footer;
 }

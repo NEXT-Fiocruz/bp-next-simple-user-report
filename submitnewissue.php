@@ -199,9 +199,9 @@
 	
 
 <form name="input" action="<?php echo $blpluginpath; ?>submitnewissue.php" enctype="multipart/form-data" method="POST">
-<div id='new-bug-form-title'><h2>Relatar novo problema</h2></div>
+<div id='new-bug-form-title'><h2>Enviar d&uacute;vida ou sugest&atilde;o</h2></div>
 
-<div id='new-bug-title-section'>T&iacute;tulo do problema<span id='required'>*</span><br />
+<div id='new-bug-title-section'>T&iacute;tulo<span id='required'>*</span><br />
 <input type='text' id='new-bug-title' name='new-bug-title' size='80' <?php if ($valid == 0) echo "value='" . $_POST['new-bug-title'] . "'"; ?> />
 </div>
 
@@ -256,7 +256,7 @@ Seu e-mail<?php if ($genoptions['requireemail'] == false) echo " (opcional)"; el
 
 <?php if ($genoptions['showcaptcha']): ?>
 	<div id='new-bug-captcha'><span id='captchaimage'><img src='<?php echo $blpluginpath . "captcha/easycaptcha.php"; ?>' /></span><br />
-	<?php _e('Enter code from above image', 'bug-library'); ?><input type='text' name='confirm_code' />
+	<?php _e('Digite o c&oacute;digo de verifica&ccedil;&atilde;o acima', 'bug-library'); ?><input type='text' name='confirm_code' />
 	</div>
 <?php endif; ?>
 
@@ -267,8 +267,8 @@ Seu e-mail<?php if ($genoptions['requireemail'] == false) echo " (opcional)"; el
 <?php elseif ($valid == 1): ?>
 <div id='bug-library-submissionaccepted'>
 <h2>Obrigado pelo envio.</h2><br /><br />
-<?php if ($genoptions['moderatesubmissions'] == 'true') echo "Seu bug aparecerá no site assim que aprovado pela moderação.<br /><br />"; ?>
-Clique <a href='<?php echo $blpluginpath; ?>submitnewissue.php'>aqui</a> para enviar um novo problema ou feche a janela para continuar a navega&ccedil;&atilde;o.
+<?php if ($genoptions['moderatesubmissions'] == 'true') echo "Sua dúvida ou sugestão aparecerá no site assim que aprovada pela moderação.<br /><br />"; ?>
+Clique <a href='<?php echo $blpluginpath; ?>submitnewissue.php'>aqui</a> para enviar uma nova d&uacute;vida ou sugestão ou feche a janela para continuar a navega&ccedil;&atilde;o.
 </div>
 <?php endif; ?>
 </body>
