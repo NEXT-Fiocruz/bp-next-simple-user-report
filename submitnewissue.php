@@ -1,11 +1,11 @@
 <head>
 <link rel="stylesheet" type="text/css" media="screen" href="stylesheet.css"/>
 </head>
-<body style='background-color: #FFFFFF;'>
+<body>
 
 <?php 
 	require_once('../../../wp-load.php');
-	require_once('bug-library.php');
+	require_once('bp-next-simple-user-report.php');
 	
 	global $wpdb;
 	$blpluginpath = WP_CONTENT_URL.'/plugins/'.plugin_basename(dirname(__FILE__)).'/';
