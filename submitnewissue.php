@@ -267,8 +267,8 @@ Seu e-mail<?php if ($genoptions['requireemail'] == false) echo " (opcional)"; el
 <?php elseif ($valid == 1): ?>
 <div id='bug-library-submissionaccepted'>
 <h2>Obrigado pelo envio.</h2><br /><br />
-<?php if ($genoptions['moderatesubmissions'] == 'true') echo "Sua dúvida ou sugestão aparecerá no site assim que aprovada pela moderação.<br /><br />"; ?>
-Clique <a href='<?php echo $blpluginpath; ?>submitnewissue.php'>aqui</a> para enviar uma nova d&uacute;vida ou sugestão ou feche a janela para continuar a navega&ccedil;&atilde;o.
+<?php if ($genoptions['moderatesubmissions'] == 'true') echo "Sua d&uacute;vida ou sugest&atilde;o aparecer&aacute; no site assim que aprovada pela modera&ccedil;&atilde;o.<br /><br />"; ?>
+Clique <a href='<?php echo $blpluginpath; ?>submitnewissue.php'>aqui</a> para enviar uma nova d&uacute;vida ou sugest&atilde;o ou feche a janela para continuar a navega&ccedil;&atilde;o.
 </div>
 <?php endif; ?>
 </body>
