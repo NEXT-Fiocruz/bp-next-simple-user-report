@@ -134,8 +134,8 @@
 				
 				if(array_key_exists('attachimage', $_FILES))
 				{
-					$target_path = $uploads['basedir'] . "/bug-library/bugimage-" . $newbugid. ".jpg";
-					$file_path = $uploads['baseurl'] . "/bug-library/bugimage-" . $newbugid . ".jpg";
+					$target_path = $uploads['basedir'] . "/bp-next-simple-user-report/bugimage-" . $newbugid. ".jpg";
+					$file_path = $uploads['baseurl'] . "/bp-next-simple-user-report/bugimage-" . $newbugid . ".jpg";
 					
 					if (move_uploaded_file($_FILES['attachimage']['tmp_name'], $target_path))
 					{
@@ -240,12 +240,12 @@ Descri&ccedil;&atilde;o <span id='required'>*</span><br />
 </div>
 
 <div id='new-bug-name-section'> Seu nome
-<?php if ($genoptions['requirename'] == false) echo " (optional)"; else echo " <span id='required'>*</span>"; ?><br />
+<?php if ($genoptions['requirename'] == false) echo " (opcional)"; else echo " <span id='required'>*</span>"; ?><br />
 <input type='text' id='new-bug-reporter-name' name='new-bug-reporter-name' size='60' <?php if ($valid == 0) echo "value='" . $_POST['new-bug-reporter-name'] . "'"; ?> />
 </div>
 
 <div id='new-bug-email-section'>
-Seu e-mail<?php if ($genoptions['requireemail'] == false) echo " (optional, for update notifications only)"; else echo " <span id='required'>*</span>";?><br />
+Seu e-mail<?php if ($genoptions['requireemail'] == false) echo " (opcional)"; else echo " <span id='required'>*</span>";?><br />
 <input type='text' id='new-bug-reporter-email' name='new-bug-reporter-email' size='60' <?php if ($valid == 0) echo "value='" . $_POST['new-bug-reporter-email'] . "'"; ?> />
 </div>
 

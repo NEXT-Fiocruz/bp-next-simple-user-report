@@ -1,33 +1,12 @@
 <?php
 /*
 Plugin Name: Next simple user report
-Plugin URI: 
 Description: Bug manager simples
 Version: 1.0
 Author: Caio Wilson
-Author URI: 
 
 A plugin for the blogging MySQL/PHP-based WordPress.
-Copyright 2011 Yannick Lefebvre
 
-This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program; if not, write to the Free Software
-Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
-
-You can also view a copy of the HTML version of the GNU General Public
-License at http://www.gnu.org/copyleft/gpl.html
-
-I, Yannick Lefebvre, can be contacted via e-mail at ylefebvre@gmail.com
 */
 
 global $wpdb;
@@ -787,8 +766,8 @@ class bug_library_plugin {
 				
 			if(array_key_exists('attachimage', $_FILES))
 			{
-				$target_path = $uploads['basedir'] . "/bug-library/bugimage-" . $post->ID. ".jpg";
-				$file_path = $uploads['baseurl'] . "/bug-library/bugimage-" . $post->ID . ".jpg";
+				$target_path = $uploads['basedir'] . "/bp-next-simple-user-report/bugimage-" . $post->ID. ".jpg";
+				$file_path = $uploads['baseurl'] . "/bp-next-simple-user-report/bugimage-" . $post->ID . ".jpg";
 				
 				if (move_uploaded_file($_FILES['attachimage']['tmp_name'], $target_path))
 				{
@@ -835,7 +814,7 @@ class bug_library_plugin {
 		$genoptions['requirename'] = false;
 		$genoptions['requireemail'] = false;
 	
-		$stylesheetlocation = get_bloginfo('wpurl') . '/wp-content/plugins/bug-library/stylesheet.css';
+		$stylesheetlocation = get_bloginfo('wpurl') . '/wp-content/plugins/bp-next-simple-user-report/stylesheet.css';
 		$genoptions['fullstylesheet'] = file_get_contents($stylesheetlocation);
 
 		update_option('BugLibraryGeneral', $genoptions);
@@ -884,8 +863,8 @@ class bug_library_plugin {
 	
 		global $pagehooktop, $pagehookstylesheet, $pagehookinstructions;
 		
-		wp_enqueue_script('tiptip', get_bloginfo('wpurl').'/wp-content/plugins/bug-library/tiptip/jquery.tipTip.minified.js', "jQuery", "1.0rc3");
-		wp_enqueue_style('tiptipstyle', get_bloginfo('wpurl').'/wp-content/plugins/bug-library/tiptip/tipTip.css');	
+		wp_enqueue_script('tiptip', get_bloginfo('wpurl').'/wp-content/plugins/bp-next-simple-user-report/tiptip/jquery.tipTip.minified.js', "jQuery", "1.0rc3");
+		wp_enqueue_style('tiptipstyle', get_bloginfo('wpurl').'/wp-content/plugins/bp-next-simple-user-report/tiptip/tipTip.css');	
 		wp_enqueue_script('postbox');
 		
 		//add several metaboxes now, all metaboxes registered during load page can be switched off/on at "Screen Options" automatically, nothing special to do therefore
@@ -1474,8 +1453,8 @@ class bug_library_plugin {
 	}
 	
 	function bl_admin_header() {
-		echo "<link rel='stylesheet' id='datePickerstyle-css'  href='/wp-content/plugins/bug-library/css/ui-lightness/jquery-ui-1.8.4.custom.css?ver=3.0.4' type='text/css' media='all' />\n";
-		echo "<script type='text/javascript' src='/wp-content/plugins/bug-library/js/ui.datepicker.js?ver=3.0.4'></script>\n";
+		echo "<link rel='stylesheet' id='datePickerstyle-css'  href='/wp-content/plugins/bp-next-simple-user-report/css/ui-lightness/jquery-ui-1.8.4.custom.css?ver=3.0.4' type='text/css' media='all' />\n";
+		echo "<script type='text/javascript' src='/wp-content/plugins/bp-next-simple-user-report/js/ui.datepicker.js?ver=3.0.4'></script>\n";
 	}
 
 	function bl_highlight_phrase($str, $phrase, $tag_open = '<strong>', $tag_close = '</strong>')
@@ -2113,12 +2092,25 @@ class bug_library_plugin {
 			
 		if ($load_fancybox)
 		{
-			wp_enqueue_script('colorbox', get_bloginfo('wpurl') . '/wp-content/plugins/bug-library/colorbox/jquery.colorbox-min.js', "", "1.3.9");
-			wp_enqueue_style('colorboxstyle', get_bloginfo('wpurl') . '/wp-content/plugins/bug-library/colorbox/colorbox.css');	
+			wp_enqueue_script('colorbox', get_bloginfo('wpurl') . '/wp-content/plugins/bp-next-simple-user-report/colorbox/jquery.colorbox-min.js', "", "1.3.9");
+			wp_enqueue_style('colorboxstyle', get_bloginfo('wpurl') . '/wp-content/plugins/bp-next-simple-user-report/colorbox/colorbox.css');	
 		}
 	 
 		return $posts;
 	}
+}
+
+function bug_report_path()
+{
+	$pluginPath =  plugin_dir_url(__FILE__);//plugins_url(). '/' . plugin_basename(__FILE__).'/';
+	return $pluginPath;
+}
+
+function bug_report_new_footer()
+{
+	$bug_report_footer = "<a href='#' id='bug' class='duvidas-ou-sugestoes'>Duvidas ou Sugestões</a><script language='JavaScript'>jQuery(document).ready(function() {jQuery('.duvidas-ou-sugestoes').colorbox({href:'" . bug_report_path().'submitnewissue.php'."', opacity: 0.3, iframe:true, width:'570px', height:'660px'});});
+    </script>";
+	return $bug_report_footer;
 }
 
 $my_bug_library_plugin = new bug_library_plugin();
