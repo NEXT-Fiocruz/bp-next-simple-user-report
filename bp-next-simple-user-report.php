@@ -2102,7 +2102,7 @@ class bug_library_plugin {
 
 function bug_report_path()
 {
-	$pluginPath =  plugin_dir_url(__FILE__);//plugins_url(). '/' . plugin_basename(__FILE__).'/';
+	$pluginPath =  plugin_dir_url(__FILE__);
 	return $pluginPath;
 }
 
@@ -2110,7 +2110,7 @@ function bug_report_new_footer()
 {
 	$bug_report_footer = "<a href='#' id='bug' class='duvidas-ou-sugestoes'>Dúvidas ou Sugestões</a><script language='JavaScript'>jQuery(document).ready(function() {jQuery('.duvidas-ou-sugestoes').colorbox({href:'" . bug_report_path().'submitnewissue.php'."', opacity: 0.3, iframe:true, width:'570px', height:'660px'});});
     </script>";
-	return $bug_report_footer;
+	print $bug_report_footer;
 }
 
 $my_bug_library_plugin = new bug_library_plugin();
